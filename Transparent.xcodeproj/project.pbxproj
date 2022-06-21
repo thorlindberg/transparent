@@ -30,11 +30,13 @@
 		7E842D18285F5FA60076D8C6 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E842D04285F5FA60076D8C6 /* UIImage+Extensions.swift */; };
 		7E842D19285F5FA60076D8C6 /* Predictions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E842D09285F5FA60076D8C6 /* Predictions.swift */; };
 		7E842D1A285F5FA60076D8C6 /* MLMultiArray+Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E842CFE285F5FA50076D8C6 /* MLMultiArray+Image.swift */; };
+		7EB739A828624629002FBB50 /* Frames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB739A728624629002FBB50 /* Frames.swift */; };
 		7EE0650F2861144E00E36E6E /* CustomisationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE0650E2861144E00E36E6E /* CustomisationView.swift */; };
 		7EE065112861151700E36E6E /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE065102861151700E36E6E /* VideoView.swift */; };
 		7EE0651628611C1000E36E6E /* Checkerboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE0651528611C1000E36E6E /* Checkerboard.swift */; };
 		7EE0651828611D5000E36E6E /* GroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE0651728611D5000E36E6E /* GroupView.swift */; };
-		7EFA5051285F8028005A418B /* VideoPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFA5050285F8028005A418B /* VideoPickerView.swift */; };
+		7EEEBB7F2861350800D4F9BC /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EEEBB7E2861350800D4F9BC /* EditView.swift */; };
+		7EFA5051285F8028005A418B /* VideoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFA5050285F8028005A418B /* VideoPicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,11 +67,13 @@
 		7E842D09285F5FA60076D8C6 /* Predictions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Predictions.swift; sourceTree = "<group>"; };
 		7E842D1E285F666C0076D8C6 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS16.0.sdk/System/Library/Frameworks/AVKit.framework; sourceTree = DEVELOPER_DIR; };
 		7E842D20285F66700076D8C6 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS16.0.sdk/System/Library/Frameworks/AVFoundation.framework; sourceTree = DEVELOPER_DIR; };
+		7EB739A728624629002FBB50 /* Frames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Frames.swift; sourceTree = "<group>"; };
 		7EE0650E2861144E00E36E6E /* CustomisationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomisationView.swift; sourceTree = "<group>"; };
 		7EE065102861151700E36E6E /* VideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoView.swift; sourceTree = "<group>"; };
 		7EE0651528611C1000E36E6E /* Checkerboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkerboard.swift; sourceTree = "<group>"; };
 		7EE0651728611D5000E36E6E /* GroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupView.swift; sourceTree = "<group>"; };
-		7EFA5050285F8028005A418B /* VideoPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPickerView.swift; sourceTree = "<group>"; };
+		7EEEBB7E2861350800D4F9BC /* EditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; };
+		7EFA5050285F8028005A418B /* VideoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +110,7 @@
 				7E572620285F5D3F00A3CE2C /* TransparentApp.swift */,
 				7E572622285F5D3F00A3CE2C /* ContentView.swift */,
 				7EE0651228611BC300E36E6E /* Views */,
+				7EB739A628623F4D002FBB50 /* ViewControllers */,
 				7EE0651328611BDA00E36E6E /* Extensions */,
 				7EE0651428611BF800E36E6E /* Shapes */,
 				7E572624285F5D4000A3CE2C /* Assets.xcassets */,
@@ -158,13 +163,21 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		7EB739A628623F4D002FBB50 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				7EFA5050285F8028005A418B /* VideoPicker.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
 		7EE0651228611BC300E36E6E /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				7EE065102861151700E36E6E /* VideoView.swift */,
+				7EEEBB7E2861350800D4F9BC /* EditView.swift */,
 				7EE0650E2861144E00E36E6E /* CustomisationView.swift */,
 				7EE0651728611D5000E36E6E /* GroupView.swift */,
-				7EFA5050285F8028005A418B /* VideoPickerView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -173,6 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				7E842CF7285F5DFB0076D8C6 /* RemoveBackground.swift */,
+				7EB739A728624629002FBB50 /* Frames.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -271,14 +285,16 @@
 				7E842D0D285F5FA60076D8C6 /* CVPixelBuffer+Rotate.swift in Sources */,
 				7E842D0C285F5FA60076D8C6 /* CoreML+Combine.swift in Sources */,
 				7EE065112861151700E36E6E /* VideoView.swift in Sources */,
-				7EFA5051285F8028005A418B /* VideoPickerView.swift in Sources */,
+				7EFA5051285F8028005A418B /* VideoPicker.swift in Sources */,
 				7E842D15285F5FA60076D8C6 /* MLModel+Images.swift in Sources */,
 				7E842D16285F5FA60076D8C6 /* CGImage+CVPixelBuffer.swift in Sources */,
 				7E572621285F5D3F00A3CE2C /* TransparentApp.swift in Sources */,
 				7E842CF8285F5DFB0076D8C6 /* RemoveBackground.swift in Sources */,
 				7E842D14285F5FA60076D8C6 /* UIImage+RawBytes.swift in Sources */,
+				7EB739A828624629002FBB50 /* Frames.swift in Sources */,
 				7E842D1A285F5FA60076D8C6 /* MLMultiArray+Image.swift in Sources */,
 				7E842D18285F5FA60076D8C6 /* UIImage+Extensions.swift in Sources */,
+				7EEEBB7F2861350800D4F9BC /* EditView.swift in Sources */,
 				7E842D11285F5FA60076D8C6 /* NonMaxSuppression.swift in Sources */,
 				7E842D0F285F5FA60076D8C6 /* Math.swift in Sources */,
 				7EE0650F2861144E00E36E6E /* CustomisationView.swift in Sources */,

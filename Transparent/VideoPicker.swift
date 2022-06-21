@@ -1,41 +1,19 @@
-//
-//  VideoPickerView.swift
-//  Transparent
-//
-//  Created by Thor Lindberg on 19/06/2022.
-//
-
 import PhotosUI
 import SwiftUI
-
-struct VideoPickerView: View {
-    
-    @Binding var videoURL: URL?
-    
-    var body: some View {
-        VideoPicker(videoURL: $videoURL)
-    }
-}
 
 struct VideoPicker: UIViewControllerRepresentable {
     
     @Binding var videoURL: URL?
 
     func makeUIViewController(context: Context) -> PHPickerViewController {
-        
         var config = PHPickerConfiguration()
         config.filter = .videos
-        
         let picker = PHPickerViewController(configuration: config)
         picker.delegate = context.coordinator
-        
         return picker
-        
     }
 
-    func updateUIViewController(_ uiViewController: PHPickerViewController, context: Context) {
-
-    }
+    func updateUIViewController(_ uiViewController: PHPickerViewController, context: Context) { }
 
     func makeCoordinator() -> Coordinator {
         Coordinator(self)
@@ -49,19 +27,17 @@ struct VideoPicker: UIViewControllerRepresentable {
             self.parent = parent
         }
 
-        func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
-            
+        func picker(
+            _ picker: PHPickerViewController,
+            didFinishPicking results: [PHPickerResult]
+        ) {
             picker.dismiss(animated: true)
-
             guard let provider = results.first?.itemProvider else { return }
-            
             provider.loadFileRepresentation(forTypeIdentifier: "public.movie") { url, error in
-                
                 guard error == nil else {
                    print(error)
                    return
                 }
-                
                 guard let url = url else { return }
                 let fileName = "\(Int(Date().timeIntervalSince1970)).\(url.pathExtension)"
                 let newUrl = URL(fileURLWithPath: NSTemporaryDirectory() + fileName)

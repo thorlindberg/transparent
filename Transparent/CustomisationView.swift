@@ -2,113 +2,107 @@ import SwiftUI
 
 struct CustomisationView: View {
     
+    let videoURL: URL?
+    
+    @State private var filename: String = "filename"
     @State private var width: String = "1920"
     @State private var height: String = "1080"
     
     var body: some View {
-        VStack(spacing: 21) {
-            GroupView {
-                HStack {
-                    Text("Duration")
-                    Spacer()
-                    Text("00:12:08")
-                        .foregroundColor(Color(uiColor: .placeholderText))
+        ScrollView(showsIndicators: false) {
+            VStack(spacing: 21) {
+                EditView()
+                GroupView {
+                    HStack {
+                        Text("Duration")
+                        Spacer()
+                        Text("00:12:08")
+                            .foregroundColor(Color(uiColor: .placeholderText))
+                    }
+                    Divider()
+                    HStack {
+                        Text("File size")
+                        Spacer()
+                        Text("34.5 MB")
+                            .foregroundColor(Color(uiColor: .placeholderText))
+                    }
+                    Divider()
+                    HStack {
+                        Text("File name")
+                        Spacer()
+                        HStack(spacing: 0) {
+                            TextField("", text: $filename)
+                                .keyboardType(.alphabet)
+                                .multilineTextAlignment(.trailing)
+                            Text(".gif")
+                        }
+                        .foregroundColor(.accentColor)
+                    }
                 }
-                Divider()
-                HStack {
-                    Text("File size")
-                    Spacer()
-                    Text("34.5 MB")
-                        .foregroundColor(Color(uiColor: .placeholderText))
-                }
-                Divider()
-                HStack {
-                    Text("File name")
-                    Spacer()
-                    HStack(spacing: 0) {
-                        TextField("", text: $height)
-                            .keyboardType(.alphabet)
+                GroupView {
+                    HStack {
+                        Text("Width")
+                        Spacer()
+                        TextField("", text: $width)
+                            .keyboardType(.numberPad)
                             .multilineTextAlignment(.trailing)
-                        Text(".gif")
+                            .foregroundColor(.accentColor)
+                        Text("px")
+                            .foregroundColor(.accentColor)
                     }
-                    .foregroundColor(.accentColor)
-                }
-                Divider()
-                HStack {
-                    Text("Optimisation")
-                    Spacer()
-                    Menu("100 %") {
-                        Text("50 %")
-                        Text("100 %")
-                        Text("150 %")
+                    Divider()
+                    HStack {
+                        Text("Height")
+                        Spacer()
+                        TextField("", text: $height)
+                            .keyboardType(.numberPad)
+                            .multilineTextAlignment(.trailing)
+                            .foregroundColor(.accentColor)
+                        Text("px")
+                            .foregroundColor(.accentColor)
                     }
-                }
-            }
-            GroupView {
-                HStack {
-                    Text("Width")
-                    Spacer()
-                    TextField("", text: $width)
-                        .keyboardType(.numberPad)
-                        .multilineTextAlignment(.trailing)
-                        .foregroundColor(.accentColor)
-                    Text("px")
-                        .foregroundColor(.accentColor)
-                }
-                Divider()
-                HStack {
-                    Text("Height")
-                    Spacer()
-                    TextField("", text: $height)
-                        .keyboardType(.numberPad)
-                        .multilineTextAlignment(.trailing)
-                        .foregroundColor(.accentColor)
-                    Text("px")
-                        .foregroundColor(.accentColor)
-                }
-                Divider()
-                HStack {
-                    Text("Speed")
-                    Spacer()
-                    Menu("100 %") {
-                        Text("50 %")
-                        Text("100 %")
-                        Text("150 %")
+                    Divider()
+                    HStack(spacing: 14) {
+                        Image(systemName: "tortoise.fill")
+                        Slider(value: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant(10)/*@END_MENU_TOKEN@*/)
+                        Image(systemName: "hare.fill")
                     }
                 }
-            }
-            GroupView {
-                HStack {
-                    Text("Frames")
-                    Spacer()
-                    Menu("20 FPS") {
-                        Text("10 FPS")
-                        Text("20 FPS")
-                        Text("30 FPS")
+                GroupView {
+                    HStack {
+                        Text("Frames")
+                        Spacer()
+                        Menu("20 FPS") {
+                            Text("10 FPS")
+                            Text("20 FPS")
+                            Text("30 FPS")
+                        }
                     }
-                }
-                Divider()
-                HStack {
-                    Text("Quality")
-                    Spacer()
-                    Menu("100 %") {
-                        Text("25 %")
-                        Text("50 %")
-                        Text("100 %")
+                    Divider()
+                    HStack {
+                        Text("Quality")
+                        Spacer()
+                        Menu("100 %") {
+                            Text("25 %")
+                            Text("50 %")
+                            Text("100 %")
+                        }
                     }
-                }
-                Divider()
-                HStack {
-                    Text("Loops")
-                    Spacer()
-                    Menu("Infinite") {
-                        Text("Infinite")
-                        Text("5")
-                        Text("10")
+                    Divider()
+                    HStack {
+                        Text("Loops")
+                        Spacer()
+                        Menu("Infinite") {
+                            Text("Infinite")
+                            Text("5")
+                            Text("10")
+                        }
                     }
                 }
             }
+            .disabled(videoURL == nil)
         }
+        .cornerRadius(7)
     }
     
 }
