@@ -1,6 +1,23 @@
 import SwiftUI
 
-struct Checkerboard: Shape {
+struct CheckerboardView: View {
+    
+    @EnvironmentObject var design: DesignSystem
+    
+    var body: some View {
+        GeometryReader { proxy in
+            CheckerboardShape(
+                rows: Int(proxy.size.height) / 10,
+                columns: Int(proxy.size.width) / 10
+            )
+            .fill(design.palette.group)
+            .background(design.palette.placeholder)
+        }
+    }
+    
+}
+
+struct CheckerboardShape: Shape {
     let rows: Int
     let columns: Int
 
