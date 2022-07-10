@@ -12,6 +12,9 @@
 		7E572623285F5D3F00A3CE2C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E572622285F5D3F00A3CE2C /* ContentView.swift */; };
 		7E572625285F5D4000A3CE2C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E572624285F5D4000A3CE2C /* Assets.xcassets */; };
 		7E572628285F5D4000A3CE2C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E572627285F5D4000A3CE2C /* Preview Assets.xcassets */; };
+		7E725C9F287AC24000B0AE4A /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E725C9E287AC24000B0AE4A /* InfoView.swift */; };
+		7E725CA1287AC29F00B0AE4A /* QualityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E725CA0287AC29F00B0AE4A /* QualityView.swift */; };
+		7E725CA3287AC2CB00B0AE4A /* SizeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E725CA2287AC2CB00B0AE4A /* SizeView.swift */; };
 		7E842CF6285F5DE50076D8C6 /* DeepLabV3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 7E842CF5285F5DE50076D8C6 /* DeepLabV3.mlmodel */; };
 		7E842CF8285F5DFB0076D8C6 /* RemoveBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E842CF7285F5DFB0076D8C6 /* RemoveBackground.swift */; };
 		7E842D0A285F5FA60076D8C6 /* CGImage+RawBytes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E842CFC285F5FA50076D8C6 /* CGImage+RawBytes.swift */; };
@@ -50,6 +53,9 @@
 		7E572624285F5D4000A3CE2C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7E572627285F5D4000A3CE2C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7E572629285F5D4000A3CE2C /* Transparent.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Transparent.entitlements; sourceTree = "<group>"; };
+		7E725C9E287AC24000B0AE4A /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
+		7E725CA0287AC29F00B0AE4A /* QualityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QualityView.swift; sourceTree = "<group>"; };
+		7E725CA2287AC2CB00B0AE4A /* SizeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeView.swift; sourceTree = "<group>"; };
 		7E842CF5285F5DE50076D8C6 /* DeepLabV3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = DeepLabV3.mlmodel; sourceTree = "<group>"; };
 		7E842CF7285F5DFB0076D8C6 /* RemoveBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveBackground.swift; sourceTree = "<group>"; };
 		7E842CF9285F5FA50076D8C6 /* Math.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Math.swift; sourceTree = "<group>"; };
@@ -153,6 +159,9 @@
 				7EE065102861151700E36E6E /* VideoView.swift */,
 				7EEEBB7E2861350800D4F9BC /* EditView.swift */,
 				7EE0650E2861144E00E36E6E /* GroupView.swift */,
+				7E725C9E287AC24000B0AE4A /* InfoView.swift */,
+				7E725CA0287AC29F00B0AE4A /* QualityView.swift */,
+				7E725CA2287AC2CB00B0AE4A /* SizeView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -304,6 +313,7 @@
 				7E842D13285F5FA60076D8C6 /* MLMultiArray+Helpers.swift in Sources */,
 				7E842D12285F5FA60076D8C6 /* CVPixelBuffer+Resize.swift in Sources */,
 				7EF346C62879DB74005CA996 /* PaddingModifier.swift in Sources */,
+				7E725C9F287AC24000B0AE4A /* InfoView.swift in Sources */,
 				7E842D0A285F5FA60076D8C6 /* CGImage+RawBytes.swift in Sources */,
 				7E842D17285F5FA60076D8C6 /* CVPixelBuffer+Create.swift in Sources */,
 				7E842D0E285F5FA60076D8C6 /* CGImagePropertyOrientation.swift in Sources */,
@@ -311,10 +321,12 @@
 				7E842D0B285F5FA60076D8C6 /* Array+Extensions.swift in Sources */,
 				7E842CF6285F5DE50076D8C6 /* DeepLabV3.mlmodel in Sources */,
 				7E842D10285F5FA60076D8C6 /* UIImage+CVPixelBuffer.swift in Sources */,
+				7E725CA3287AC2CB00B0AE4A /* SizeView.swift in Sources */,
 				7E572623285F5D3F00A3CE2C /* ContentView.swift in Sources */,
 				7E842D0D285F5FA60076D8C6 /* CVPixelBuffer+Rotate.swift in Sources */,
 				7E842D0C285F5FA60076D8C6 /* CoreML+Combine.swift in Sources */,
 				7EE065112861151700E36E6E /* VideoView.swift in Sources */,
+				7E725CA1287AC29F00B0AE4A /* QualityView.swift in Sources */,
 				7EFA5051285F8028005A418B /* VideoPicker.swift in Sources */,
 				7E842D15285F5FA60076D8C6 /* MLModel+Images.swift in Sources */,
 				7E842D16285F5FA60076D8C6 /* CGImage+CVPixelBuffer.swift in Sources */,
