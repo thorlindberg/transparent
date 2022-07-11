@@ -10,20 +10,20 @@ struct ContentView: View {
     @State private var isPickingVideo: Bool = false
     @State private var isExportingGIF: Bool = false
     
-    @State private var videoURL: URL? = URL(string: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4")
-    
-    @State private var frames: Int32 = 1
-    @State private var size: CGSize = CGSize(width: 1920, height: 1080)
-    @State private var filename: String = "filename"
-    
     var body: some View {
         NavigationView {
             ScrollView {
                 VStack(spacing: design.sizing.maximum) {
-                    VideoView(videoURL: videoURL, frames: frames, size: size)
-                    EditView()
-                    InfoView(filename: $filename)
-                    SizeView(size: $size)
+                    VideoView(video: data.video)
+                    EditView(frames: data.video.frames)
+                    InfoView(
+                        duration: data.video.duration,
+                        filename: $data.video.options.filename
+                    )
+                    SizeView(
+                        width: $data.video.options.width,
+                        height: $data.video.options.height
+                    )
                     QualityView()
                 }
                 .padding()
@@ -33,12 +33,13 @@ struct ContentView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button(action: {
+                        print(data.video.duration)
                         isPickingVideo = true
                     }) {
                         Image(systemName: "plus")
                     }
                     .sheet(isPresented: $isPickingVideo) {
-                        VideoPicker(videoURL: $videoURL)
+                        VideoPicker(videoURL: $data.video.url)
                     }
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -47,7 +48,7 @@ struct ContentView: View {
                     }) {
                         Image(systemName: "square.and.arrow.up")
                     }
-                    .disabled(videoURL == nil)
+                    .disabled(data.video.url == nil)
                 }
             }
         }

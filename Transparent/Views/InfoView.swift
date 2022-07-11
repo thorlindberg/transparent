@@ -4,17 +4,21 @@ struct InfoView: View {
     
     @EnvironmentObject var design: DesignModel
     
+    let duration: Int64?
+    
     @Binding var filename: String
     
     var body: some View {
         GroupView {
-            HStack {
-                Text("Duration")
-                Spacer()
-                Text("00:12:08")
-                    .foregroundColor(design.palette.placeholder)
+            if let duration {
+                HStack {
+                    Text("Duration")
+                    Spacer()
+                    Text("\(duration)")
+                        .foregroundColor(design.palette.placeholder)
+                }
+                Divider()
             }
-            Divider()
             HStack {
                 Text("File size")
                 Spacer()

@@ -4,40 +4,70 @@ struct EditView: View {
     
     @EnvironmentObject var design: DesignModel
     
-    @State private var leadingOffset: CGFloat = 50
-    @State private var trailingOffset: CGFloat = 0
+    let frames: [UIImage?]
     
     var body: some View {
         ZStack {
-            GeometryReader { proxy in
-                HStack(spacing: 0) {
-                    ForEach(1...4, id: \.self) { _ in
-                        Image("sample")
+            CheckerboardView()
+                .stroked()
+            TimelineView(frames: frames)
+            TrimView()
+        }
+    }
+    
+}
+
+struct TimelineView: View {
+    
+    @EnvironmentObject var design: DesignModel
+    
+    let frames: [UIImage?]
+    
+    var body: some View {
+        GeometryReader { proxy in
+            HStack(spacing: 0) {
+                ForEach(frames, id: \.self) { frame in
+                    if let frame {
+                        Image(uiImage: frame)
                             .resizable()
-                            .scaledToFit()
-                            .frame(height: proxy.size.height)
+                            .scaledToFill()
+                            .frame(
+                                width: proxy.size.width / CGFloat(frames.count),
+                                height: proxy.size.height
+                            )
                     }
                 }
             }
-            .cornerRadius(design.sizing.medium)
-            .stroked()
-            HStack(spacing: 0) {
-                HandleView(text: "chevron.compact.left")
-                VStack {
-                    Rectangle()
-                        .frame(height: design.sizing.small)
-                        .foregroundColor(design.palette.edit)
-                    Spacer()
-                    Rectangle()
-                        .frame(height: design.sizing.small)
-                        .foregroundColor(design.palette.edit)
-                }
-                HandleView(text: "chevron.compact.right")
-            }
-            .cornerRadius(design.sizing.medium)
-            .padding(.leading, leadingOffset)
-            .padding(.trailing, trailingOffset)
         }
+        .cornerRadius(design.sizing.medium)
+    }
+    
+}
+
+struct TrimView: View {
+    
+    @EnvironmentObject var design: DesignModel
+    
+    @State private var leadingOffset: CGFloat = 0
+    @State private var trailingOffset: CGFloat = 30
+    
+    var body: some View {
+        HStack(spacing: 0) {
+            HandleView(icon: "chevron.compact.left")
+            ZStack {
+                Rectangle()
+                    .foregroundColor(.black)
+                    .cornerRadius(design.sizing.medium - design.sizing.small)
+                    .padding(.vertical, design.sizing.small)
+                    .blendMode(.destinationOut)
+            }
+            HandleView(icon: "chevron.compact.right")
+        }
+        .background(design.palette.edit)
+        .cornerRadius(design.sizing.medium)
+        .compositingGroup()
+        .padding(.leading, leadingOffset)
+        .padding(.trailing, trailingOffset)
     }
     
 }
@@ -46,10 +76,10 @@ struct HandleView: View {
     
     @EnvironmentObject var design: DesignModel
     
-    let text: String
+    let icon: String
     
     var body: some View {
-        Image(systemName: text)
+        Image(systemName: icon)
             .font(Font.title.weight(.medium))
             .foregroundColor(.black)
             .padding(.horizontal, design.sizing.large)

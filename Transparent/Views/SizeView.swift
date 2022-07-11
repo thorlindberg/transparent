@@ -4,7 +4,8 @@ struct SizeView: View {
     
     @EnvironmentObject var design: DesignModel
     
-    @Binding var size: CGSize
+    @Binding var width: Int
+    @Binding var height: Int
     
     @State private var isLinked: Bool = false
     
@@ -16,8 +17,8 @@ struct SizeView: View {
                         Text("Width")
                         Spacer()
                         TextField("", text: Binding(
-                            get: { "\(size.width)" },
-                            set: { size.width = CGFloat(Double($0)!) }
+                            get: { "\(width)" },
+                            set: { width = Int($0)! }
                         ))
                         .keyboardType(.numberPad)
                         .multilineTextAlignment(.trailing)
@@ -30,8 +31,8 @@ struct SizeView: View {
                         Text("Height")
                         Spacer()
                         TextField("", text: Binding(
-                            get: { "\(size.height)" },
-                            set: { size.height = CGFloat(Double($0)!) }
+                            get: { "\(height)" },
+                            set: { height = Int($0)! }
                         ))
                         .keyboardType(.numberPad)
                         .multilineTextAlignment(.trailing)

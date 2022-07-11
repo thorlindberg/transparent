@@ -162,8 +162,8 @@
 				7EEEBB7E2861350800D4F9BC /* EditView.swift */,
 				7EE0650E2861144E00E36E6E /* GroupView.swift */,
 				7E725C9E287AC24000B0AE4A /* InfoView.swift */,
-				7E725CA0287AC29F00B0AE4A /* QualityView.swift */,
 				7E725CA2287AC2CB00B0AE4A /* SizeView.swift */,
+				7E725CA0287AC29F00B0AE4A /* QualityView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
