@@ -1,6 +1,4 @@
 import SwiftUI
-import AVKit
-import AVFoundation
 
 struct ContentView: View {
     
@@ -14,24 +12,9 @@ struct ContentView: View {
         NavigationView {
             ScrollView {
                 VStack(spacing: design.sizing.maximum) {
-                    VideoView(
-                        video: data.video
-                    )
-                    EditView(
-                        frames: data.video.frames
-                    )
-                    InfoView(
-                        storage: data.video.storage,
-                        duration: data.video.duration,
-                        filename: $data.video.options.filename
-                    )
-                    SizeView(
-                        width: $data.video.options.width,
-                        height: $data.video.options.height
-                    )
-                    QualityView(
-                        frames: $data.video.options.frames
-                    )
+                    VideoView(video: data.video)
+                    EditView(frames: data.video.frames)
+                    CustomizeView(video: $data.video)
                 }
                 .padding()
             }

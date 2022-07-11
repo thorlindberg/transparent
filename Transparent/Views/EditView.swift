@@ -76,6 +76,13 @@ struct TrimView: View {
     @Binding var leadingOffset: CGFloat
     @Binding var trailingOffset: CGFloat
     
+    var distance: CGFloat? {
+        if let timelineLength {
+            return timelineLength - leadingOffset - trailingOffset
+        }
+        return nil
+    }
+    
     var isEditing: Bool {
         leadingOffset > 0 || trailingOffset > 0
     }
@@ -89,12 +96,16 @@ struct TrimView: View {
                         coordinateSpace: .local
                     )
                     .onChanged({ value in
-                        if leadingOffset + value.translation.width > 0 {
-                            leadingOffset += value.translation.width
+                        if let distance {
+                            if distance - value.translation.width > 10 {
+                                if leadingOffset + value.translation.width > 0 {
+                                    leadingOffset += value.translation.width
+                                }
+                            }
                         }
                     })
                     .onEnded( { value in
-                        if leadingOffset < 10 {
+                        if leadingOffset < 20 {
                             withAnimation {
                                 leadingOffset = 0
                             }
@@ -118,12 +129,16 @@ struct TrimView: View {
                         coordinateSpace: .local
                     )
                     .onChanged({ value in
-                        if trailingOffset - value.translation.width > 0 {
-                            trailingOffset -= value.translation.width
+                        if let distance {
+                            if distance + value.translation.width > 10 {
+                                if trailingOffset - value.translation.width > 0 {
+                                    trailingOffset -= value.translation.width
+                                }
+                            }
                         }
                     })
                     .onEnded( { value in
-                        if trailingOffset < 10 {
+                        if trailingOffset < 20 {
                             withAnimation {
                                 trailingOffset = 0
                             }
