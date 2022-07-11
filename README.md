@@ -1,4 +1,4 @@
-#   Transparent GIF
+**Transparent GIF**
 
 Automatically isolate the subject in a video, then export the result as a GIF.
 
