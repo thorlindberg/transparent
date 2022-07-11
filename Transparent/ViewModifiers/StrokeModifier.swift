@@ -2,7 +2,7 @@ import SwiftUI
 
 struct StrokeModifier: ViewModifier {
     
-    @EnvironmentObject var design: DesignSystem
+    @EnvironmentObject var design: DesignModel
     
     func body(content: Content) -> some View {
         content

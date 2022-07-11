@@ -2,7 +2,7 @@ import SwiftUI
 
 struct EditView: View {
     
-    @EnvironmentObject var design: DesignSystem
+    @EnvironmentObject var design: DesignModel
     
     @State private var leadingOffset: CGFloat = 50
     @State private var trailingOffset: CGFloat = 0
@@ -44,7 +44,7 @@ struct EditView: View {
 
 struct HandleView: View {
     
-    @EnvironmentObject var design: DesignSystem
+    @EnvironmentObject var design: DesignModel
     
     let text: String
     

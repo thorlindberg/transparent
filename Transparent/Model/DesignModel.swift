@@ -15,7 +15,7 @@ struct ViewPalette: Hashable {
     let placeholder: Color = Color(uiColor: .placeholderText)
 }
 
-class DesignSystem: ObservableObject {
+class DesignModel: ObservableObject {
     
     @Published var sizing: ViewSizing = ViewSizing()
     @Published var palette: ViewPalette = ViewPalette()

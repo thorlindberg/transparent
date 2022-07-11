@@ -2,7 +2,7 @@ import SwiftUI
 
 struct SizeView: View {
     
-    @EnvironmentObject var design: DesignSystem
+    @EnvironmentObject var design: DesignModel
     
     @Binding var size: CGSize
     

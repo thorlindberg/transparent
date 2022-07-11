@@ -2,7 +2,7 @@ import SwiftUI
 
 struct InfoView: View {
     
-    @EnvironmentObject var design: DesignSystem
+    @EnvironmentObject var design: DesignModel
     
     @Binding var filename: String
     

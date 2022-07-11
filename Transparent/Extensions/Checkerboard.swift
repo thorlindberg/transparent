@@ -2,7 +2,7 @@ import SwiftUI
 
 struct CheckerboardView: View {
     
-    @EnvironmentObject var design: DesignSystem
+    @EnvironmentObject var design: DesignModel
     
     var body: some View {
         GeometryReader { proxy in

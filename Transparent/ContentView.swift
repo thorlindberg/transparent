@@ -4,7 +4,8 @@ import AVFoundation
 
 struct ContentView: View {
     
-    @StateObject var design = DesignSystem()
+    @StateObject var design = DesignModel()
+    @StateObject var data = DataModel()
     
     @State private var isPickingVideo: Bool = false
     @State private var isExportingGIF: Bool = false

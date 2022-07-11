@@ -15,7 +15,7 @@ import Shiny
 
 struct VideoView: View {
     
-    @EnvironmentObject var design: DesignSystem
+    @EnvironmentObject var design: DesignModel
     
     let videoURL: URL?
     let frames: Int32

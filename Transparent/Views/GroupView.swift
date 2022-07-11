@@ -2,7 +2,7 @@ import SwiftUI
 
 struct GroupView<Content: View>: View {
     
-    @EnvironmentObject var design: DesignSystem
+    @EnvironmentObject var design: DesignModel
     
     let content: Content
     
