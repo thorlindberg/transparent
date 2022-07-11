@@ -14,9 +14,14 @@ struct ContentView: View {
         NavigationView {
             ScrollView {
                 VStack(spacing: design.sizing.maximum) {
-                    VideoView(video: data.video)
-                    EditView(frames: data.video.frames)
+                    VideoView(
+                        video: data.video
+                    )
+                    EditView(
+                        frames: data.video.frames
+                    )
                     InfoView(
+                        storage: data.video.storage,
                         duration: data.video.duration,
                         filename: $data.video.options.filename
                     )
@@ -24,7 +29,9 @@ struct ContentView: View {
                         width: $data.video.options.width,
                         height: $data.video.options.height
                     )
-                    QualityView()
+                    QualityView(
+                        frames: $data.video.options.frames
+                    )
                 }
                 .padding()
             }
@@ -33,7 +40,6 @@ struct ContentView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button(action: {
-                        print(data.video.duration)
                         isPickingVideo = true
                     }) {
                         Image(systemName: "plus")

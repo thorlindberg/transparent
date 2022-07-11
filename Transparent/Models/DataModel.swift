@@ -33,24 +33,26 @@ struct Video: Hashable {
     }
     
     var frames: [UIImage?] {
+        
+        let increments: Int64 = 12
+        
         if let player, let duration {
             return stride(
-                from: 0, to: 12, by: 1
+                from: 0, to: increments, by: 1
             ).map({
                 player.frame(
-                    second: duration / 12 * $0,
+                    second: duration / increments * $0,
                     scale: 1
                 )
             })
         }
         return [nil]
+        
     }
     
-    /*
-    if let transparent = image.removeBackground(returnResult: .finalImage) {
-        return transparent
+    var storage: Int? {
+        return nil
     }
-    */
     
 }
 
@@ -59,4 +61,16 @@ struct Options: Hashable {
     var frames: Int32 = 1
     var width: Int = 1920
     var height: Int = 1080
+}
+
+struct Frame: Hashable {
+    var base: UIImage?
+    var transparent: UIImage? {
+        if let base {
+            if let transparent = base.removeBackground(returnResult: .finalImage) {
+                return transparent
+            }
+        }
+        return nil
+    }
 }

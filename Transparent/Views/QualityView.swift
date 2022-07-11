@@ -1,15 +1,25 @@
 import SwiftUI
 
 struct QualityView: View {
+    
+    @Binding var frames: Int32
+    
     var body: some View {
         GroupView {
             HStack {
                 Text("Frames")
                 Spacer()
-                Menu("20 FPS") {
-                    Text("10 FPS")
-                    Text("20 FPS")
-                    Text("30 FPS")
+                Menu("\(frames) FPS") {
+                    ForEach(1...30, id: \.self) { count in
+                        Button(action: {
+                            frames = Int32(count)
+                        }) {
+                            Label(
+                                "\(count)",
+                                systemImage: frames == Int32(count) ? "checkmark" : ""
+                            )
+                        }
+                    }
                 }
             }
             Divider()
@@ -34,4 +44,5 @@ struct QualityView: View {
             }
         }
     }
+        
 }

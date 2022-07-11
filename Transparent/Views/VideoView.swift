@@ -39,7 +39,7 @@ struct VideoView: View {
                     }
                     .tint(hasBackground ? .accentColor : .white)
                     .background(.ultraThinMaterial)
-                    .cornerRadius(design.sizing.medium)
+                    .cornerRadius(design.sizing.large - design.sizing.medium)
                     Spacer()
                 }
                 Spacer()

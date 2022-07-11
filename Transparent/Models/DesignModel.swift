@@ -16,8 +16,6 @@ struct ViewPalette: Hashable {
 }
 
 class DesignModel: ObservableObject {
-    
     @Published var sizing: ViewSizing = ViewSizing()
     @Published var palette: ViewPalette = ViewPalette()
-    
 }
