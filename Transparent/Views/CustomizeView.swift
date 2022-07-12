@@ -8,6 +8,8 @@ struct CustomizeView: View {
         InfoView(
             storage: video.storage,
             duration: video.duration,
+            starting: video.starting,
+            ending: video.ending,
             filename: $video.options.filename
         )
         SizeView(
@@ -47,21 +49,33 @@ struct InfoView: View {
     @EnvironmentObject var design: DesignModel
     
     let storage: Int?
-    let duration: Int64?
+    let duration: CGFloat
+    let starting: CGFloat
+    let ending: CGFloat
     
     @Binding var filename: String
     
     var body: some View {
         GroupView {
             HStack {
+                Text("Starting point")
+                Spacer()
+                Text("\(Int(starting))s")
+                    .foregroundColor(design.palette.placeholder)
+            }
+            Divider()
+            HStack {
+                Text("Ending point")
+                Spacer()
+                Text("\(Int(ending))s")
+                    .foregroundColor(design.palette.placeholder)
+            }
+            Divider()
+            HStack {
                 Text("Duration")
                 Spacer()
-                if let duration {
-                    Text("\(duration)")
-                        .foregroundColor(design.palette.placeholder)
-                } else {
-                    ProgressView()
-                }
+                Text("\(Int(ending - starting))s")
+                    .foregroundColor(design.palette.placeholder)
             }
             Divider()
             HStack {

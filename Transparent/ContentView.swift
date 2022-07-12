@@ -13,7 +13,12 @@ struct ContentView: View {
             ScrollView {
                 VStack(spacing: design.sizing.maximum) {
                     VideoView(video: data.video)
-                    EditView(frames: data.video.frames)
+                    EditView(
+                        frames: data.video.frames,
+                        starting: $data.video.starting,
+                        ending: $data.video.ending,
+                        duration: $data.video.duration
+                    )
                     CustomizeView(video: $data.video)
                 }
                 .padding()
@@ -23,7 +28,8 @@ struct ContentView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button(action: {
-                        isPickingVideo = true
+                        data.video.url = URL(string: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4")
+                        // isPickingVideo = true
                     }) {
                         Image(systemName: "plus")
                     }
