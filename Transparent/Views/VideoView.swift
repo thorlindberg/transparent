@@ -24,8 +24,14 @@ struct VideoView: View {
     var body: some View {
         ZStack {
             CheckerboardView()
-            if video.player != nil {
-                VideoPlayer(player: video.player)
+            if let player = video.player {
+                VideoPlayer(player: player)
+                    .onAppear {
+                        player.play()
+                    }
+                    .onDisappear {
+                        player.pause()
+                    }
             }
             VStack {
                 HStack {

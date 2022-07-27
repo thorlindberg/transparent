@@ -10,7 +10,7 @@ struct EditView: View {
     
     @Binding var starting: CGFloat
     @Binding var ending: CGFloat
-    @Binding var duration: CGFloat
+    let duration: CGFloat
     
     var body: some View {
         ZStack {
@@ -188,7 +188,7 @@ struct HandleView: View {
     var body: some View {
         Image(systemName: icon)
             .font(Font.title.weight(.medium))
-            .foregroundColor(editing ? .black : .white)
+            .foregroundColor(editing ? .black : Color(uiColor: .secondaryLabel))
             .padding(.horizontal, design.sizing.large)
             .padding(.vertical, design.sizing.huge)
     }

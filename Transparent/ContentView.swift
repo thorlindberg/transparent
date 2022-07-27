@@ -17,7 +17,7 @@ struct ContentView: View {
                         frames: data.video.frames,
                         starting: $data.video.starting,
                         ending: $data.video.ending,
-                        duration: $data.video.duration
+                        duration: data.video.duration ?? 616
                     )
                     CustomizeView(video: $data.video)
                 }
@@ -47,7 +47,6 @@ struct ContentView: View {
                 }
             }
         }
-        .preferredColorScheme(.dark)
         .environmentObject(design)
     }
     

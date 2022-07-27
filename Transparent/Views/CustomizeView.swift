@@ -5,13 +5,15 @@ struct CustomizeView: View {
     @Binding var video: Video
     
     var body: some View {
-        InfoView(
-            storage: video.storage,
-            duration: video.duration,
-            starting: video.starting,
-            ending: video.ending,
-            filename: $video.options.filename
-        )
+        if let duration = video.duration {
+            InfoView(
+                storage: video.storage,
+                duration: duration,
+                starting: video.starting,
+                ending: video.ending,
+                filename: $video.options.filename
+            )
+        }
         SizeView(
             width: $video.options.width,
             height: $video.options.height

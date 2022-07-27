@@ -11,11 +11,12 @@ struct ViewSizing: Hashable {
 struct ViewPalette: Hashable {
     var edit: Color = Color(uiColor: .systemOrange)
     let group: Color = Color(uiColor: .secondarySystemBackground)
-    let stroke: Color = Color(uiColor: .tertiarySystemBackground)
+    let stroke: Color = Color(uiColor: .secondarySystemFill)
     let placeholder: Color = Color(uiColor: .placeholderText)
 }
 
 class DesignModel: ObservableObject {
+    @Environment(\.colorScheme) var colorScheme
     @Published var sizing: ViewSizing = ViewSizing()
     @Published var palette: ViewPalette = ViewPalette()
 }

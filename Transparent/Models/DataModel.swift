@@ -5,6 +5,8 @@ import AVFoundation
 class DataModel: ObservableObject {
     
     @Published var video: Video = Video()
+    @Published var options: Options = Options()
+    @Published var frames: [Frame] = []
     
 }
 
@@ -21,34 +23,23 @@ struct Video: Hashable {
         return nil
     }
     
-    var starting: CGFloat = 0
-    var ending: CGFloat = 360
-    var duration: CGFloat = 360
+    var duration: CGFloat?
     
-    /*
-    var duration: Double? {
-        if let player {
-            if let item = player.currentItem {
-                return item.duration.seconds
-            }
-        }
-        return nil
-    }
-    */
+    var starting: CGFloat = 0
+    
+    var ending: CGFloat = 616
     
     var frames: [UIImage?] {
         let increments: Int = 10
-        if let player { // , let duration
-            if !duration.isNaN {
-                return stride(
-                    from: 0, to: increments, by: 1
-                ).map({
-                    player.frame(
-                        second: Int64(Int(duration) / increments * $0),
-                        scale: 1
-                    )
-                })
-            }
+        if let player, let duration {
+            return stride(
+                from: 0, to: increments, by: 1
+            ).map({
+                player.frame(
+                    second: Int64(Int(duration) / increments * $0),
+                    scale: 1
+                )
+            })
         }
         return [nil]
     }
